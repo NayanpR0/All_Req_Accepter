@@ -1,0 +1,28 @@
+{
+    "name": "PETER-PARKER-BOT",
+    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
+    "logo": "https://graph.org/file/f65110f85f548ef11aed7.jpg",
+    "stack": "container",
+    "keywords": [
+      "telegram",
+      "pyrogram"
+    ],
+    "website": "https://github.com/matrixbotz0/All_Req_Accepter",
+    "repository": "https://github.com/matrixbotz0/All_Req_Accepter",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your bot token.",
+            "required": true
+        }
+    },
+    "addons": [],
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    }
+}
