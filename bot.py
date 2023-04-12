@@ -1,17 +1,11 @@
 from pyrogram import Client
+from config import *
 
-Client = Client(name="auto-delete",
-             api_id=API_ID,
-             api_hash=API_HASH,
-             bot_token=BOT_TOKEN,
-             plugins={"root": "plugins"},
-             workers=300
-             )
+bot = Client(
+           "Renamer",
+           bot_token=TOKEN,
+           api_id=API_ID,
+           api_hash=API_HASH,
+           plugins=dict(root='plugins'))
 
-Client.start()
-print("Bot Started!")
-
-idle()
-
-Client.stop()
-print("Bot Stopped!")
+bot.run()
