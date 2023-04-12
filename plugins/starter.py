@@ -7,7 +7,7 @@ START_MSG = "HI {}"
 @Client.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     buttons = [[
-        InlineKeyboardButton('Oᴡɴᴇʀ', user_id='1957296068'),
+        InlineKeyboardButton('Oᴡɴᴇʀ', user_id='5596825598'),
         InlineKeyboardButton('Gʀᴏᴜᴘ', url='https://t.me/MaSTeR_filims')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
