@@ -10,3 +10,8 @@ Client = Client(name="auto-delete",
 
 Client.start()
 print("Bot Started!")
+
+idle()
+
+Client.stop()
+print("Bot Stopped!")
