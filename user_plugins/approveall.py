@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from Pyrogram.errors import FloodWait
+from pyrogram.errors import FloodWait
 CMND = [".", "/", ":"]
 
 @Client.on_message(filters.command(["run", "approve"], CMND) & (filters.group | filters.channel))                     
