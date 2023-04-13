@@ -9,4 +9,12 @@ async def add_new_session(bot, message):
         session = message.text.split(" ", maxsplit=1)[1]
     except Exception:
         await msg.edit("Give session")
-    
+    try:
+        string = Client(name="user-account",
+              session_string=session,
+              api_id=API_ID,
+              api_hash=API_HASH,
+              )
+        await string.start()
+    except Exception:
+        
