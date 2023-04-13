@@ -29,4 +29,4 @@ async def approve(client: Client, message: Message):
         await asyncio.sleep(4)
         await client.approve_all_chat_join_requests(chat.id)#10
         await msg.edit("Complted approved all Chat Join Reqs")
-    except FloodWait as x:
+  except FloodWait as x:
