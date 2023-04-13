@@ -1,7 +1,7 @@
 from pyrogram import Client,  filters, enums
 from config import API_ID, API_HASH
 
-@Client.on_message(filters.command("clone") & filters.user(ADMINS))
+@Client.on_message(filters.command("add"))
 async def add_new_session(bot, message):
     user = message.from_user.id
     msg = await message.reply_text("processing")
