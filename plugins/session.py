@@ -16,7 +16,10 @@ async def add_new_session(bot, message):
               session_string=session,
               api_id=API_ID,
               api_hash=API_HASH,
+              plugins={"root": "user_plugins"},
               )
         await string.start()
+        await msg.edit("Completed Your Session Has Been Started type .run in your chat accept all request")
     except Exception as e:
         print(e)
+        await msg.edit(f"error {}")
