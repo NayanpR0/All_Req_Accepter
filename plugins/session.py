@@ -22,4 +22,4 @@ async def add_new_session(bot, message):
         await msg.edit("Completed Your Session Has Been Started type .run in your chat accept all request")
     except Exception as e:
         print(e)
-        await msg.edit(f"error {}")
+        await msg.edit(f"error {e}")
