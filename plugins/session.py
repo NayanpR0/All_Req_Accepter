@@ -7,7 +7,7 @@ from asyncio.exceptions import TimeoutError
 SI_TEXT = "Hey {} Send Your session Without error /cancel to cancel proccess"
 
 @Client.on_message(filters.command("add"))
-async def add_new_session(bot, message: Message):
+async def add_new_session(bot, message):
     user = message.from_user.id
     msg = await message.reply_text("processing")
     session = message.text.split(" ", maxsplit=1)[1]
