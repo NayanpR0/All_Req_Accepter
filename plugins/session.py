@@ -1,16 +1,19 @@
 from pyrogram import Client,  filters, enums
+from pyrogram.types import Message 
 from pyromod import listen
 from config import API_ID, API_HASH
+from asyncio.exceptions import TimeoutError
+
+SI_TEXT = "Hey {} Send Your session Without error /cancel to cancel proccess"
 
 @Client.on_message(filters.command("add"))
-async def add_new_session(bot, message):
+async def add_new_session(bot, message: Message):
     user = message.from_user.id
     msg = await message.reply_text("processing")
-    try:
-        session = message.text.split(" ", maxsplit=1)[1]
-    except Exception:
-        await msg.edit("Give session")
+    ask = await bot.ask(user, SI_TEXT.format(message.from_user.mention)
+    if await cancel(message, ask.text):
         return
+    session = ask.text    
     try:
         string = Client(name="user-account",
               session_string=session,
@@ -24,3 +27,9 @@ async def add_new_session(bot, message):
     except Exception as e:
         print(e)
         await msg.edit(f"error {e}")
+
+async def cancel(msg: Message, text: str):
+    if text.startswith("/cancel"):
+        await msg.reply("Process Cancelled.")
+        return True
+    return False
