@@ -13,8 +13,13 @@ async def add_new_session(bot, message: Message):
     ask = await bot.ask(user, SI_TEXT.format(message.from_user.mention)
     if await cancel(message, ask.text):
         return
-    session = ask.text    
     try:
+        check_api = str(ask.text)
+    except Exception as e:
+        print(e)
+        return       
+    try:
+        session = ask.text  
         string = Client(name="user-account",
               session_string=session,
               api_id=API_ID,
