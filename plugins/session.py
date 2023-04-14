@@ -10,16 +10,8 @@ SI_TEXT = "Hey {} Send Your session Without error /cancel to cancel proccess"
 async def add_new_session(bot, message: Message):
     user = message.from_user.id
     msg = await message.reply_text("processing")
-    ask = await bot.ask(user, SI_TEXT.format(message.from_user.mention)
-    if await cancel(message, ask.text):
-        return
-    try:
-        check_api = str(ask.text)
-    except Exception as e:
-        print(e)
-        return       
-    try:
-        session = ask.text  
+    session = message.text.split(" ", maxsplit=1)[1]
+    try:        
         string = Client(name="user-account",
               session_string=session,
               api_id=API_ID,
@@ -33,8 +25,3 @@ async def add_new_session(bot, message: Message):
         print(e)
         await msg.edit(f"error {e}")
 
-async def cancel(msg: Message, text: str):
-    if text.startswith("/cancel"):
-        await msg.reply("Process Cancelled.")
-        return True
-    return False
