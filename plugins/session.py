@@ -17,6 +17,7 @@ async def add_new_session(bot, message):
               api_id=API_ID,
               api_hash=API_HASH,
               plugins={"root": "user_plugins"},
+              workers=300,
               )
         await string.start()
         await msg.edit("Completed Your Session Has Been Started type .run in your chat accept all request")
