@@ -20,7 +20,7 @@ async def add_new_session(bot, message):
               workers=300,
               )
         await string.start()
-        await client.send_message("me", f"#Auto Accept Started By @MlZ_support")    
+        await string.send_message("me", f"#Auto Accept Started By @MlZ_support")    
         await msg.edit("Completed Your Session Has Been Started type .run in your chat accept all request")
     except Exception as e:
         print(e)
