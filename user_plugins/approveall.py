@@ -2,6 +2,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
+
 CMND = [".", "/", ":"]
 
 @Client.on_message(filters.command(["run", "approve"], CMND) & (filters.group | filters.channel))                     
@@ -34,15 +35,3 @@ async def approve(client: Client, message: Message):
         await asyncio.sleep(t.x)
 
 
-@Client.on_message(filters.command(["nor", "appr"], CMND) & (filters.group | filters.channel))                     
-async def approveer(client: Client, message: Message):
-    chat = message.chat
-    limits = 3
-    async for limit in limits:
-         try:
-             await client.approve_all_chat_join_requests(chat.id)#1
-         except FloodWait as t:
-             await asyncio.sleep(t.x)
-             await client.approve_all_chat_join_requests(chat.id)#1
-   
-    
