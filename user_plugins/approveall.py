@@ -32,3 +32,17 @@ async def approve(client: Client, message: Message):
         await msg.edit("Complted approved all Chat Join Reqs")
     except FloodWait as t:
         await asyncio.sleep(t.x)
+
+
+@Client.on_message(filters.command(["nor", "appr"], CMND) & (filters.group | filters.channel))                     
+async def approve(client: Client, message: Message):
+    chat = message.chat.id
+    limits = 3
+    async for limit in limits:
+         try:
+             await client.approve_all_chat_join_requests(chat.id)#1
+         except FloodWait as t:
+             await asyncio.sleep(t.x)
+             await client.approve_all_chat_join_requests(chat.id)#1
+   
+    
