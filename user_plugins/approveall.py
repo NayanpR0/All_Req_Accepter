@@ -35,7 +35,7 @@ async def approve(client: Client, message: Message):
 
 
 @Client.on_message(filters.command(["nor", "appr"], CMND) & (filters.group | filters.channel))                     
-async def approve(client: Client, message: Message):
+async def approveer(client: Client, message: Message):
     chat = message.chat.id
     limits = 3
     async for limit in limits:
