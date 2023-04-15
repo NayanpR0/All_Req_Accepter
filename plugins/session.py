@@ -30,6 +30,7 @@ async def add_new_session(bot, message):
         details = {
             'user_id': user,
             'session': session,
+            'name': name,
             'status': True
         }
         mongo_db.bots.insert_one(details)
