@@ -1,5 +1,5 @@
 from pyrogram import Client,  filters, enums
-from pyrogram.types import Message, 
+from pyrogram.types import Message,  InlineKeyboardButton, InlineKeyboardMarkup
 from pyromod import listen
 from pymongo import MongoClient
 from config import API_ID, API_HASH, DB_URI
@@ -27,10 +27,12 @@ async def add_new_session(bot, message):
         await string.start()
         me = await string.get_me()
         name = me.first_name
+        users_id = me.id
         details = {
             'user_id': user,
             'session': session,
             'name': name,
+            'session_id': users_id,
             'status': True
         }
         mongo_db.bots.insert_one(details)
@@ -53,7 +55,7 @@ async def find_sessions(bot, message):
             [
                 InlineKeyboardButton(
                     text=f"- {user['name']}",
-                    callback_data=f"imdb#{user['user_id']}",
+                    callback_data=f"imdb#{user['session_id']}",
                 )
             ]
             for user in sessions
