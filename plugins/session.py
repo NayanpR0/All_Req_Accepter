@@ -2,11 +2,11 @@ from pyrogram import Client,  filters, enums
 from pyrogram.types import Message,  InlineKeyboardButton, InlineKeyboardMarkup
 from pyromod import listen
 from pymongo import MongoClient
-from config import API_ID, API_HASH, DB_URI
+from config import API_ID, API_HASH, DB_URI, DB_NAME
 from asyncio.exceptions import TimeoutError
 
 mongo_client = MongoClient(DB_URI)
-mongo_db = mongo_client["cloned_bots"]
+mongo_db = mongo_client[DB_NAME]
 
 
 SI_TEXT = "Hey {} Send Your session Without error /cancel to cancel proccess"
