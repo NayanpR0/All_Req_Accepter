@@ -61,3 +61,8 @@ async def find_sessions(bot, message):
             for user in sessions
         ]
     await message.reply_text("Yor Session Select From Below", reply_markup=InlineKeyboardMarkup(btn))
+
+@Client.on_callback_query(filters.regex('^u_settings'))
+async def imdb_callback(bot: Client, query: CallbackQuery):
+    i, session_id = query.data.split('#')
+    
