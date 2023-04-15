@@ -25,6 +25,8 @@ async def add_new_session(bot, message):
               workers=300,
               )
         await string.start()
+        me = await string.get_me()
+        name = me.first_name
         details = {
             'user_id': user,
             'session': session,
@@ -47,15 +49,6 @@ async def find_sessions(bot, message):
         return
     text = "<b>Your cloned bots:</b>"
     btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"{movie.get('title')} - {movie.get('year')}",
-                    callback_data=f"imdb#{movie.movieID}",
-                )
-            ]
-            for movie in movies
-        ]
-btn = [
             [
                 InlineKeyboardButton(
                     text=f"{movie.get('title')} - {movie.get('year')}",
