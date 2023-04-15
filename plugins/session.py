@@ -30,9 +30,20 @@ async def add_new_session(bot, message):
             'session': session,
             'status': True
         }
+        mongo_db.bots.insert_one(details)
         await string.send_message("me", f"#Auto Accept Started By @MlZ_support")    
         await msg.edit("Completed Your Session Has Been Started type .run in your chat accept all request")
     except Exception as e:
         print(e)
         await msg.edit(f"error {e}")
 
+@Client.on_message(filters.command("mystring"))
+async def find_sessions(bot, message):
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
+    sessions = list(mongo_db.bots.find({'user_id': user_id}))
+    if len(bots) == 0:
+        await message.reply_text("You haven't cloned any bots yet.")
+        return
+    text = "<b>Your cloned bots:</b>"
+    
