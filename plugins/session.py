@@ -47,7 +47,7 @@ async def find_sessions(bot, message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     sessions = list(mongo_db.bots.find({'user_id': user_id}))
-    if len(bots) == 0:
+    if len(sessions) == 0:
         await message.reply_text("You haven't cloned any bots yet.")
         return
     text = "<b>Your cloned bots:</b>"
