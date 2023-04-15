@@ -65,4 +65,9 @@ async def find_sessions(bot, message):
 @Client.on_callback_query(filters.regex('^u_settings'))
 async def imdb_callback(bot: Client, query: CallbackQuery):
     i, session_id = query.data.split('#')
-    
+    buttons = [[
+            InlineKeyboardButton('+Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ+', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        ], [
+            InlineKeyboardButton('🛡Hᴇʟᴘ🛡', callback_data='help'),
+            InlineKeyboardButton('Aʙᴏᴜᴛ📓', callback_data='about')
+       ]]
