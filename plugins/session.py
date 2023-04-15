@@ -52,9 +52,9 @@ async def find_sessions(bot, message):
     btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{movie.get('title')} - {movie.get('year')}",
+                    text=f"- {user['name']}",
                     callback_data=f"imdb#{movie.movieID}",
                 )
             ]
-            for movie in movies
+            for user in sessions
         ]
