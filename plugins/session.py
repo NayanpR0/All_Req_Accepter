@@ -1,5 +1,5 @@
 from pyrogram import Client,  filters, enums
-from pyrogram.types import Message 
+from pyrogram.types import Message, 
 from pyromod import listen
 from pymongo import MongoClient
 from config import API_ID, API_HASH, DB_URI
@@ -53,8 +53,9 @@ async def find_sessions(bot, message):
             [
                 InlineKeyboardButton(
                     text=f"- {user['name']}",
-                    callback_data=f"imdb#{movie.movieID}",
+                    callback_data=f"imdb#{user['user_id']}",
                 )
             ]
             for user in sessions
         ]
+    await message.reply_text("Yor Session Select From Below", reply_markup=InlineKeyboardMarkup(btn))
