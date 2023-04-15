@@ -55,7 +55,7 @@ async def find_sessions(bot, message):
             [
                 InlineKeyboardButton(
                     text=f"- {user['name']}",
-                    callback_data=f"imdb#{user['session_id']}",
+                    callback_data=f"u_settings#{user['session_id']}",
                 )
             ]
             for user in sessions
