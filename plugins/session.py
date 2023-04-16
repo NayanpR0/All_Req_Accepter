@@ -80,9 +80,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
     elif query.data == "stop_s":
         i, session_id = query.data.split('#')
-        session = mongo_db.bots.find_one('session_id': session_id}))
+        session = mongo_db.bots.find_one({'session_id': session_id})
         session_string = {session['session']}
         try:
             await session_string.stop()
+            await query.message.edit_text("User Stoppex")
         except Exception as e:
             print(e)
