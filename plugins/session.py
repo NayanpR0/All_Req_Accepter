@@ -1,5 +1,5 @@
 from pyrogram import Client,  filters, enums
-from pyrogram.types import Message,  InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import Message,  InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyromod import listen
 from pymongo import MongoClient
 from config import API_ID, API_HASH, DB_URI, DB_NAME
