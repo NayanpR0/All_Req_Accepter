@@ -84,3 +84,5 @@ async def cb_handler(client: Client, query: CallbackQuery):
         session_string = {session['session']}
         try:
             await session_string.stop()
+        except Exception as e:
+            print(e)
