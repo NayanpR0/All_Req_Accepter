@@ -80,4 +80,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
     elif query.data == "stop_s":
         i, session_id = query.data.split('#')
-        user_data = mongo_db.bots.find_one_and_delete({"username": bot_username})
+        user_data = mongo_db.bots.find_one_and_delete({"session_id": session_id})
+        if user_data:
+            user_id = user_data["session_id"]
+            cloned_sessions = mongo_db.cloned_sessions.find({"session_id": bot_id})
+       
