@@ -71,4 +71,4 @@ async def imdb_callback(bot: Client, query: CallbackQuery):
             InlineKeyboardButton("Stop", callback_data=f"stop_s#{session_id}"),
             InlineKeyboardButton("Delete", callback_data=f"del_s#{session_id}")
        ]]
-    await query.reply_text("Change your Session Settings", reply_markup=InlineKeyboardMarkup(buttons))
+    await query.message.edit_text("Change your Session Settings", reply_markup=InlineKeyboardMarkup(buttons))
