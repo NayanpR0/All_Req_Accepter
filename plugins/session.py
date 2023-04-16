@@ -72,3 +72,12 @@ async def imdb_callback(bot: Client, query: CallbackQuery):
             InlineKeyboardButton("Delete", callback_data=f"del_s#{session_id}")
        ]]
     await query.message.edit_text("Change your Session Settings", reply_markup=InlineKeyboardMarkup(buttons))
+
+
+@Client.on_callback_query()
+async def cb_handler(client: Client, query: CallbackQuery):
+    if query.data == "close_data":
+        await query.message.delete()
+    elif query.data == "stop_s":
+        i, session_id = query.data.split('#')
+        user_data = mongo_db.bots.find_one_and_delete({"username": bot_username})
