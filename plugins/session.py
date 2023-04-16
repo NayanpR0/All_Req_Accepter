@@ -66,8 +66,9 @@ async def find_sessions(bot, message):
 async def imdb_callback(bot: Client, query: CallbackQuery):
     i, session_id = query.data.split('#')
     buttons = [[
-            InlineKeyboardButton('Start Session', callback_data=f'start_s#{session_id}')
+            InlineKeyboardButton("Start Session", callback_data=f"start_s#{session_id}")
         ], [
-            InlineKeyboardButton('Stop', callback_data=f'stop_s#{session_id}'),
-            InlineKeyboardButton('Delete', callback_data=f'del_s#session_id')
+            InlineKeyboardButton("Stop", callback_data=f"stop_s#{session_id}"),
+            InlineKeyboardButton("Delete", callback_data=f"del_s#session_id")
        ]]
+    await message.reply_text("Change your Session Settings", reply_markup=InlineKeyboardMarkup(buttons))
